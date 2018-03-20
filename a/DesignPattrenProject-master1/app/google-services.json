@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "10005563716",
+    "firebase_url": "https://designpattrenproject2.firebaseio.com",
+    "project_id": "designpattrenproject2",
+    "storage_bucket": "designpattrenproject2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10005563716:android:350d01ba1490801d",
+        "android_client_info": {
+          "package_name": "com.example.michael.designpattrenproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10005563716-5p1v7j7ta8snp5mrs8kek2ntboogqd1v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.michael.designpattrenproject",
+            "certificate_hash": "10bad256ac0b477ed6d5ac1ea5c70f3b6c6e3b9e"
+          }
+        },
+        {
+          "client_id": "10005563716-2apdfb8esputfk5l1jba262n5bhsu6to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5BDGuZjxzZr7dFMLFDBSsgi4Q6nsqu9o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10005563716-2apdfb8esputfk5l1jba262n5bhsu6to.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
