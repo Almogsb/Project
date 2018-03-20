@@ -1,8 +1,6 @@
 package com.google.android.gms.samples.vision.face.facetracker;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -12,7 +10,7 @@ public class SelectModeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_mode);
+        setContentView(R.layout.activity_first);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 

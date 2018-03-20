@@ -1,0 +1,30 @@
+package com.google.android.gms.samples.vision.face.facetracker.Activities;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.gms.samples.vision.face.facetracker.R;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+
+    private Button get_started ;
+    private TextView hello_text;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        get_started = findViewById(R.id.GetStartedBtn);
+        get_started.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(this,FirstActivity.class);
+        startActivity(intent);
+    }
+}

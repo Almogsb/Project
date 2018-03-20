@@ -17,14 +17,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
-        android:label="Mobile Vision">
-
+        android:label="Mobile Vision"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -33,7 +30,7 @@
             android:value="face" />
 
         <activity
-            android:name=".FaceTrackerActivity"
+            android:name=".Activities.MainActivity"
             android:icon="@drawable/icon"
             android:label="Face Tracker"
             android:screenOrientation="fullSensor"
@@ -44,19 +41,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activities.SecondActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.almog.SecondActivity"></action>
+        <!--<activity-->
+            <!--android:name=".Activities.MainActivity"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.example.almog.SecondActivity" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
         <activity
             android:name=".SelectModeActivity"
-            android:label="@string/title_activity_select_mode">
-        </activity>
+            android:label="@string/title_activity_select_mode"></activity>
+        <activity android:name=".Activities.FirstActivity" />
+        <activity android:name=".Activities.SecondActivity" />
+
+
 
     </application>
 
