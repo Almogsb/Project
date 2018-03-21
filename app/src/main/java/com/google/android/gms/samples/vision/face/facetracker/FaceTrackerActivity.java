@@ -34,6 +34,7 @@ import android.widget.Button;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.face.facetracker.ui.camera.SensorActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.FifthActivity;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
@@ -60,7 +61,6 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
 
-   public static float distance = 0;
     Button btn;
    // public SensorActivity s;
 
@@ -87,7 +87,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent =  new Intent(FaceTrackerActivity.this, MainActivity.class );
+               Intent intent =  new Intent(FaceTrackerActivity.this, FifthActivity.class );
                 startActivity(intent);
             }
         });

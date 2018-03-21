@@ -22,6 +22,7 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.Landmark;
@@ -161,7 +162,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
                         fEyesDistance = (float)( Math.sqrt(fPowCalculateTemp)*(640/480));
                         // y = -6.1x + 279.6
                         fFaceToScreenDistance = (float) ((-Math.log(fEyesDistance/346.92)) /  0.043);
-                        FaceTrackerActivity.distance = (float) ((-Math.log(fEyesDistance/346.92)) /  0.043);
+                        Globals.distance = (float) ((-Math.log(fEyesDistance/346.92)) /  0.043);
                         //  fFaceToScreenDistance = (float)((fEyesDistance - 279.6) /(-6.1));
                         //  Math.(100,2);
 

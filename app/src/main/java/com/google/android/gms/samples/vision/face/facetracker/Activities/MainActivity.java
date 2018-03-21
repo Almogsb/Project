@@ -13,14 +13,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    private Button get_started ;
-    private TextView hello_text;
+    private Button get_started_btn ;
+  //  private TextView hello_txt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        get_started = findViewById(R.id.GetStartedBtn);
-        get_started.setOnClickListener(this);
+        get_started_btn = findViewById(R.id.GetStartedBtn);
+        get_started_btn.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,13 +29,17 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v==near) {
+            Globals.mode = Globals.NEAR;
             Intent intent = new Intent(this, SecondActivity.class);
             startActivity(intent);
+            finish();
         }
-        if (v==far)
+        else if (v==far)
         {
+            Globals.mode = Globals.FAR;
             Intent intent = new Intent(this, SecondActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }

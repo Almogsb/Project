@@ -19,7 +19,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/HeaderTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -33,70 +33,87 @@
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/AutoBtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
         android:text="Auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:id="@+id/NextBtn2"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:text="NEXT"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <Button
+        android:id="@+id/ManualBtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
         android:text="Manual"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/HeaderTV" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginLeft="92dp"
+        android:id="@+id/ManualTV"
+        android:layout_width="181dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="104dp"
         android:layout_marginTop="8dp"
         android:text="Change it when you want to."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ManualBtn"
+        app:layout_constraintVertical_bias="0.011" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/AutoTV"
+        android:layout_width="232dp"
+        android:layout_height="24dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Change by choosed frequency."
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        tools:text="Change it every:" />
+        app:layout_constraintTop_toBottomOf="@+id/AutoBtn"
+        tools:text="Change by choosed frequency." />
 
     <NumberPicker
-        android:id="@+id/numberPicker2"
+        android:id="@+id/AutoNP"
         android:layout_width="81dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintTop_toBottomOf="@+id/AutoTV"
+        app:layout_constraintVertical_bias="0.088" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/AutoTV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:text="seconds."
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberPicker2"
+        app:layout_constraintTop_toBottomOf="@+id/AutoNP"
         tools:text="seconds." />
 
 </android.support.constraint.ConstraintLayout>
