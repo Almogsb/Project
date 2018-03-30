@@ -3,12 +3,16 @@ package com.google.android.gms.samples.vision.face.facetracker.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
+
+import static java.lang.Math.sqrt;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,6 +21,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private Button far ;
     private Button near ;
     private TextView hello_text;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         near.setOnClickListener(this);
         far = findViewById(R.id.FarBtn);
         far.setOnClickListener(this);
+
+
     }
     @Override
     public void onClick(View v) {
