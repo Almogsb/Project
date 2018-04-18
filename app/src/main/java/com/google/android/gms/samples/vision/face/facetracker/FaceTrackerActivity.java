@@ -30,11 +30,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.face.facetracker.ui.camera.SensorActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.FifthActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
+import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
@@ -47,6 +50,11 @@ import java.io.IOException;
 
 import com.google.android.gms.samples.vision.face.facetracker.Activities.MainActivity;
 
+import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.LEFT_FLOAT;
+import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.LEFT_INT;
+import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.RIGHT_FLOAT;
+import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.RIGHT_INT;
+import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.SPH;
 import static java.lang.Thread.sleep;
 
 /**
@@ -62,7 +70,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     private GraphicOverlay mGraphicOverlay;
 
     Button btn;
-   // public SensorActivity s;
+    // public SensorActivity s;
 
     private static final int RC_HANDLE_GMS = 9001;
     // permission request codes need to be < 256
@@ -82,16 +90,21 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
         mGraphicOverlay = (GraphicOverlay) findViewById(R.id.faceOverlay);
-        btn = (Button)findViewById(R.id.btn1);
+        btn = (Button) findViewById(R.id.btn1);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent =  new Intent(FaceTrackerActivity.this, FifthActivity.class );
+
+                Globals.scale_image = CreateScaleImage();
+                Log.d("debug", "Screen Inchesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+  Globals.scale_image);
+               // Toast.makeText(this,String.valueOf(   Globals.scale_image), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(FaceTrackerActivity.this, FifthActivity.class);
                 startActivity(intent);
             }
         });
-       // this.s = new SensorActivity();
+        // this.s = new SensorActivity();
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -304,6 +317,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         private GraphicOverlay mOverlay;
         private FaceGraphic mFaceGraphic;
         Context c = getApplicationContext();
+
         GraphicFaceTracker(GraphicOverlay overlay) {
             mOverlay = overlay;
           /*  try {
@@ -311,9 +325,9 @@ public final class FaceTrackerActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
-         //   Toast.makeText(c.getApplicationContext(),""+ s.getDistance2(),Toast.LENGTH_LONG).show();
-          //  System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + s.getDistance2());
-            mFaceGraphic = new FaceGraphic(overlay ,c);
+            //   Toast.makeText(c.getApplicationContext(),""+ s.getDistance2(),Toast.LENGTH_LONG).show();
+            //  System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + s.getDistance2());
+            mFaceGraphic = new FaceGraphic(overlay, c);
         }
 
         /**
@@ -351,5 +365,22 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         public void onDone() {
             mOverlay.remove(mFaceGraphic);
         }
+    }
+
+    public double CreateScaleImage() {
+        double far_point = 0;
+
+
+        SPH = (Functions.CreateFloatNumber(Globals.eyes[LEFT_INT], Globals.eyes[LEFT_FLOAT]) +
+                Functions.CreateFloatNumber(Globals.eyes[RIGHT_INT], Globals.eyes[RIGHT_FLOAT])) / 2;
+        if (Globals.mode == 1) { // Far is selected
+            far_point = Functions.CalculateFarPoint(SPH);
+
+        } else {   // Near is selected
+
+        }
+
+       return  Functions.OptimalDiagonalSize(Functions.CmToInch(Globals.distance))/(Functions.OptimalDiagonalSize(Functions.CmToInch(far_point)));
+
     }
 }

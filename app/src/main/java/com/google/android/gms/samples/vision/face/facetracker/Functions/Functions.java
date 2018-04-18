@@ -1,5 +1,7 @@
 package com.google.android.gms.samples.vision.face.facetracker.Functions;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -16,22 +18,27 @@ import static java.lang.Math.sqrt;
 public class Functions {
 
     public static double CreateFloatNumber(int first_number, int second_number){
-        return first_number+(0.1*second_number);
+        return first_number + (0.01*second_number);
     }
-    public static double Average(int first_number, int second_number) {
-        return (first_number+second_number)/2;
+    public static double CmToInch(double number){
+        return number/2.54;
     }
-    public static void CalculateGlassNumber(int left_eye, int right_eye) {
-        double eyes_acuity_avg = Average(left_eye,right_eye);
+    public static double CalculateFarPoint(double sph) {
+       return 1/(sph)*100; // return in CM
     }
-    public static float CalculateFarPoint(float acuity_number) {
-        return 1/abs(acuity_number);
-    }
+
+   /* public static float convertDpToPixel(float dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return px;
+    }*/
     public static double OptimalDiagonalSize (double distance){
-        double pow = Math.pow(Globals.dm.widthPixels/Globals.dm.heightPixels,2);
+        double pow = Math.pow(Globals.dm.heightPixels/(double)Globals.dm.widthPixels,2);
         double square = Math.sqrt(pow+1);
         double tan = Math.tan(1.0/60*PI/180);
-        return distance/square*Globals.dm.widthPixels*tan;
+        double a = distance*square*Globals.dm.widthPixels*tan;
+        return a;
     }
 
 

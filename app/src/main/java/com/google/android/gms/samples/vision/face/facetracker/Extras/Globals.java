@@ -28,11 +28,13 @@ public class Globals {
     public static Integer[] eyes = new Integer[4]; // 0 - left int, 1 - left float , 2 - right int , 3 - right float
     public static Integer frequency = 0;
 
-    public static float distance = 0;
-    public static float distance0 = 0;
-    public static float focal_length = 0;
-    public static float SPH = 0;
+    public static double distance = 0;
+    public static double distance0 = 0;
+    public static double scale_image = 0;
+    public static double SPH = 0;
 
+    public static double dp_to_pixels = 0;
     public static DisplayMetrics dm = new DisplayMetrics();
 
+    public static String[] number_picker_range = new String[]{"0","25","50","75"};
 }

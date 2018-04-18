@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
+import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import static java.lang.Math.PI;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    private Button get_started_btn ;
+    private Button get_started_btn;
   //  private TextView hello_txt;
 
     @Override
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    /*     float Density = (float) sqrt(((Globals.dm.widthPixels * Globals.dm.heightPixels) + (Globals.dm.heightPixels * Globals.dm.heightPixels)) / screenInches);
         Log.d("DENSITY ! ", String.format("%.2f",Density)+" In");*/
         //End calculate the inch of the screen
+
+        // /Convert dp to pixels of the screen
+        //Globals.dp_to_pixels = Functions.convertDpToPixel(480 , this);
     }
     @Override
     public void onClick(View v) {

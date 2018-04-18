@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
+import java.util.Arrays;
+
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
 
 
@@ -34,13 +36,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         right_float_np = findViewById(R.id.RightFloatNP);
         right_float_np.setOnClickListener(this);
-        right_float_np.setDisplayedValues(new String[]{"0","25","50","75"});
+        right_float_np.setDisplayedValues(Globals.number_picker_range);
         right_float_np.setMaxValue(3);
         right_float_np.setOnValueChangedListener(this);
 
         left_float_np = findViewById(R.id.LeftFloatNP);
         left_float_np.setOnClickListener(this);
-        left_float_np.setDisplayedValues(new String[]{"0","25","50","75"});
+        left_float_np.setDisplayedValues(Globals.number_picker_range);
         left_float_np.setMaxValue(3);
         left_float_np.setOnValueChangedListener(this);
 
@@ -62,6 +64,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         back_btn = findViewById(R.id.BackBtn);
         back_btn.setOnClickListener(this);
 
+        //initial array values with 0
+        Arrays.fill(Globals.eyes, 0);
 
     }
     @Override
@@ -83,16 +87,16 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if(picker == left_int_np){
             Globals.eyes[Globals.LEFT_INT] = newVal;
     //        Log.i("left_int_np", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + String.valueOf(Globals.eyes[Globals.LEFT_INT]));
-            Toast.makeText(this,String.valueOf(Globals.eyes[Globals.LEFT_INT]),Toast.LENGTH_SHORT).show();
+    //       Toast.makeText(this,String.valueOf(Globals.eyes[Globals.LEFT_INT]),Toast.LENGTH_SHORT).show();
         }
         else if(picker == left_float_np){
-            Globals.eyes[Globals.LEFT_FLOAT] = newVal;
+            Globals.eyes[Globals.LEFT_FLOAT] = Integer.valueOf(Globals.number_picker_range[newVal]);
         }
         else if(picker == right_int_np){
             Globals.eyes[Globals.RIGHT_INT] = newVal;
         }
         else if(picker == right_float_np){
-            Globals.eyes[Globals.RIGHT_FLOAT] = newVal;
+            Globals.eyes[Globals.RIGHT_FLOAT] = Integer.valueOf(Globals.number_picker_range[newVal]);
         }
     }
 }
