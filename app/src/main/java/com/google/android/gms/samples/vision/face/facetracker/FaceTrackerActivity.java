@@ -36,6 +36,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.face.facetracker.ui.camera.SensorActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.FifthActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.SingleTouchImageViewActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.vision.CameraSource;
@@ -100,7 +101,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
                 Log.d("debug", "Screen Inchesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+  Globals.scale_image);
                // Toast.makeText(this,String.valueOf(   Globals.scale_image), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(FaceTrackerActivity.this, FifthActivity.class);
+                Intent intent = new Intent(FaceTrackerActivity.this, SingleTouchImageViewActivity.class);
                 startActivity(intent);
             }
         });

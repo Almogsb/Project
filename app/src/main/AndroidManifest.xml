@@ -57,6 +57,7 @@
         <activity android:name=".Activities.SecondActivity" />
         <activity android:name=".Activities.ThirdActivity" />
         <activity android:name=".Activities.FifthActivity" />
+        <activity android:name=".Activities.SingleTouchImageViewActivity" />
         <activity android:name=".FaceTrackerActivity" />
 
 
