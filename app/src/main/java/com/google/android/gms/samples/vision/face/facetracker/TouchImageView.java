@@ -12,6 +12,7 @@
 
 package com.google.android.gms.samples.vision.face.facetracker;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -38,6 +39,7 @@ import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
 
+@SuppressLint("AppCompatCustomView")
 public class TouchImageView extends ImageView {
 	
 	private static final String DEBUG = "DEBUG";
@@ -401,7 +403,6 @@ public class TouchImageView extends ImageView {
     /**
      * Set zoom parameters equal to another TouchImageView. Including scale, position,
      * and ScaleType.
-     * @param TouchImageView
      */
     public void setZoom(TouchImageView img) {
     	PointF center = img.getScrollPosition();

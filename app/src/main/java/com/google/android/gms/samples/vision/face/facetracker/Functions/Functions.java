@@ -17,9 +17,7 @@ import static java.lang.Math.sqrt;
 
 public class Functions {
 
-    public static double CreateFloatNumber(int first_number, int second_number){
-        return first_number + (0.01*second_number);
-    }
+    public static double CreateFloatNumber(int first_number, int second_number){return first_number + (0.01*second_number);}
     public static double CmToInch(double number){
         return number/2.54;
     }
