@@ -12,7 +12,7 @@ import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivity;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
-public class ThirdActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
+public class FrequencyActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
 
 
 
@@ -22,13 +22,13 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
     private Button auto_btn ;
     private TextView auto_txt;
 
-    public ThirdActivity() {
+    public FrequencyActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_third);
+        setContentView(R.layout.activity_frequency);
 
         auto_np = findViewById(R.id.AutoNP);
         auto_np.setOnClickListener(this);

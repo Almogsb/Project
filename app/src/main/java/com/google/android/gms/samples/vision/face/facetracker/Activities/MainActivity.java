@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
-import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
-import static java.lang.Math.PI;
 import static java.lang.Math.sqrt;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(this,FirstActivity.class);
+        Intent intent=new Intent(this,FarOrNearActivity.class);
         startActivity(intent);
     }
 }

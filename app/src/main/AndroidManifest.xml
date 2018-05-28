@@ -45,7 +45,7 @@
             <!--android:name=".Activities.MainActivity"-->
             <!--android:exported="true">-->
             <!--<intent-filter>-->
-                <!--<action android:name="com.example.almog.SecondActivity" />-->
+                <!--<action android:name="com.example.almog.AcuityNumberActivity" />-->
 
                 <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
@@ -53,10 +53,9 @@
         <activity
             android:name=".SelectModeActivity"
             android:label="@string/title_activity_select_mode"></activity>
-        <activity android:name=".Activities.FirstActivity" />
-        <activity android:name=".Activities.SecondActivity" />
-        <activity android:name=".Activities.ThirdActivity" />
-        <activity android:name=".Activities.FifthActivity" />
+        <activity android:name=".Activities.FarOrNearActivity" />
+        <activity android:name=".Activities.AcuityNumberActivity" />
+        <activity android:name=".Activities.FrequencyActivity" />
         <activity android:name=".Activities.SingleTouchImageViewActivity" />
         <activity android:name=".FaceTrackerActivity" />
 

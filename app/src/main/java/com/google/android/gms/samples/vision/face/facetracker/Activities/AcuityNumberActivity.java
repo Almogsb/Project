@@ -7,14 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import java.util.Arrays;
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
+public class AcuityNumberActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
 
 
 
@@ -26,13 +25,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     private Button back_btn ;
     private TextView hello_text;
 
-    public SecondActivity() {
+    public AcuityNumberActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_acuity_number);
 
         right_float_np = findViewById(R.id.RightFloatNP);
         right_float_np.setOnClickListener(this);
@@ -71,12 +70,12 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
          if( v == back_btn) {
-            Intent intent = new Intent(this, FirstActivity.class);
+            Intent intent = new Intent(this, FarOrNearActivity.class);
             startActivity(intent);
             finish();
         }
         else if(v == next_btn){
-            Intent intent = new Intent(this, ThirdActivity.class);
+            Intent intent = new Intent(this, FrequencyActivity.class);
             startActivity(intent);
             finish();
         }
