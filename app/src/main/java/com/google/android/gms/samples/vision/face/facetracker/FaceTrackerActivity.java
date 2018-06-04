@@ -46,6 +46,8 @@ import com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSo
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.LEFT_FLOAT;
 import static com.google.android.gms.samples.vision.face.facetracker.Extras.Globals.LEFT_INT;
@@ -65,7 +67,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
-
+    public Timer t;
     Button btn;
     // public SensorActivity s;
 
@@ -96,12 +98,32 @@ public final class FaceTrackerActivity extends AppCompatActivity {
                 Globals.scale_image = CreateScaleImage();
                 Log.d("debug", "Screen Inchesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+  Globals.scale_image);
                // Toast.makeText(this,String.valueOf(   Globals.scale_image), Toast.LENGTH_SHORT).show();
+                try{
+                t.cancel();
+                }
+                catch(Exception e){
+                    Log.e("",e.getMessage());
+                }
+
+
+                t = new Timer();
+//Set the schedule function and rate
+                if (Globals.frequency > 0) {
+                    t.schedule(new TimerTask() {
+                                              @Override
+                                              public void run() {
+                                                    Intent intent = new Intent(FaceTrackerActivity.this, FaceTrackerActivity.class);
+                                                    startActivity(intent);
+                                              }
+                                          },
+//Set how long before to start calling the TimerTask (in milliseconds)
+                            Globals.frequency * 1000);
+                }
 
                 Intent intent = new Intent(FaceTrackerActivity.this, SingleTouchImageViewActivity.class);
                 startActivity(intent);
             }
         });
-        // this.s = new SensorActivity();
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -370,12 +392,8 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
         SPH = (Functions.CreateFloatNumber(Globals.eyes[LEFT_INT], Globals.eyes[LEFT_FLOAT]) +
                 Functions.CreateFloatNumber(Globals.eyes[RIGHT_INT], Globals.eyes[RIGHT_FLOAT])) / 2;
-        if (Globals.mode == 1) { // Far is selected
             far_point = Functions.CalculateFarPoint(SPH);
 
-        } else {   // Near is selected
-
-        }
 
        return  Functions.OptimalDiagonalSize(Functions.CmToInch(Globals.distance))/(Functions.OptimalDiagonalSize(Functions.CmToInch(far_point)));
 

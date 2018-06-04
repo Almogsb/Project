@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.lang.Math.sqrt;
 
@@ -42,10 +46,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // /Convert dp to pixels of the screen
         //Globals.dp_to_pixels = Functions.convertDpToPixel(480 , this);
+        //Declare the timer
+
     }
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(this,FarOrNearActivity.class);
+        Intent intent=new Intent(this,AcuityNumberActivity.class);
         startActivity(intent);
     }
+
+
 }

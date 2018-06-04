@@ -18,13 +18,10 @@ public class Globals {
     public final static int RIGHT_INT = 2;
     public final static int RIGHT_FLOAT = 3;
 
-    public final static int NEAR = 0;
-    public final static int FAR = 1;
 
 
     //Global variables
 
-    public static Integer mode; //near or far mode
     public static Integer[] eyes = new Integer[4]; // 0 - left int, 1 - left float , 2 - right int , 3 - right float
     public static Integer frequency = 0;
 
@@ -32,6 +29,7 @@ public class Globals {
     public static double distance0 = 0;
     public static double scale_image = 0;
     public static double SPH = 0;
+
 
     public static double dp_to_pixels = 0;
     public static DisplayMetrics dm = new DisplayMetrics();

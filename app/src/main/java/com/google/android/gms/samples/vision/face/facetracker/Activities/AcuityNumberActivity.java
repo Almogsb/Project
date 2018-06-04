@@ -70,7 +70,7 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
          if( v == back_btn) {
-            Intent intent = new Intent(this, FarOrNearActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }

@@ -50,10 +50,6 @@
                 <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
         <!--</activity>-->
-        <activity
-            android:name=".SelectModeActivity"
-            android:label="@string/title_activity_select_mode"></activity>
-        <activity android:name=".Activities.FarOrNearActivity" />
         <activity android:name=".Activities.AcuityNumberActivity" />
         <activity android:name=".Activities.FrequencyActivity" />
         <activity android:name=".Activities.SingleTouchImageViewActivity" />

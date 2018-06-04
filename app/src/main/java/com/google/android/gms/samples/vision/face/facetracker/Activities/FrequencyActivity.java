@@ -34,6 +34,7 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
         auto_np.setOnClickListener(this);
         auto_np.setMaxValue(120);
         auto_np.setMinValue(1);
+        auto_np.setOnValueChangedListener(this);
 
         next_btn = findViewById(R.id.NextBtn2);
         next_btn.setOnClickListener(this);
