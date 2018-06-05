@@ -26,10 +26,12 @@ public class Globals {
     public static Integer frequency = 0;
 
     public static double distance = 0;
-    public static double distance0 = 0;
+    public static double line_examination_picker = 0;
+    public static double line_examination_result = 0;
     public static double scale_image = 0;
     public static double SPH = 0;
 
+    public static double APP_MODE = 0;
 
     public static double dp_to_pixels = 0;
     public static DisplayMetrics dm = new DisplayMetrics();

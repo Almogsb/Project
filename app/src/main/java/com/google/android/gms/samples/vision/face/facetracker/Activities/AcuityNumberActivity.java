@@ -9,13 +9,12 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
+import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivity;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import java.util.Arrays;
 
 public class AcuityNumberActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
-
-
 
     private NumberPicker left_int_np ;
     private NumberPicker left_float_np ;
@@ -75,9 +74,15 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
             finish();
         }
         else if(v == next_btn){
-            Intent intent = new Intent(this, FrequencyActivity.class);
-            startActivity(intent);
-            finish();
+             if(Globals.APP_MODE == 1) {
+                 Intent intent = new Intent(this, FrequencyActivity.class);
+                 startActivity(intent);
+                 finish();
+             }
+             else{//Globals.APP_MODE == 0
+                 Intent intent = new Intent(this, FaceTrackerActivity.class);
+                 startActivity(intent);
+                 finish();             }
         }
     }
 

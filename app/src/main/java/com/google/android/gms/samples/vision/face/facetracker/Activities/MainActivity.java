@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private Button get_started_btn;
+    private Button eye_examination_btn;
   //  private TextView hello_txt;
 
     @Override
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         get_started_btn = findViewById(R.id.GetStartedBtn);
         get_started_btn.setOnClickListener(this);
+
+        eye_examination_btn = findViewById(R.id.eyeExaminationBtn);
+        eye_examination_btn.setOnClickListener(this);
 
         //Calculate the inch of the screen
         getWindowManager().getDefaultDisplay().getMetrics(Globals.dm);
@@ -51,8 +55,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(this,AcuityNumberActivity.class);
-        startActivity(intent);
+        Intent intent;
+        if(v == get_started_btn){
+            intent=new Intent(this,AcuityNumberActivity.class);
+            startActivity(intent);
+            Globals.APP_MODE = 1;
+        } else if(v == eye_examination_btn) {
+            intent = new Intent(this, AcuityNumberActivity.class);
+            startActivity(intent);
+            Globals.APP_MODE = 0;
+        }
     }
 
 

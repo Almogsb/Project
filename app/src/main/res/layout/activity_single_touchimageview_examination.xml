@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<com.google.android.gms.samples.vision.face.facetracker.TouchImageView
+		android:id="@+id/img"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:scaleType="center"
+		android:src="@drawable/snellen_chart2" />
+
+	<TextView
+		android:id="@+id/current_zoom"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentStart="true"
+		android:background="@android:color/black"
+		android:padding="5dp"
+		android:text="zoom"
+		android:textColor="@android:color/white" />
+
+	<TextView
+		android:id="@+id/textView3"
+		style="@android:style/Widget.Holo.TextView.SpinnerItem"
+		android:layout_width="117dp"
+		android:layout_height="wrap_content"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginTop="14dp"
+		android:gravity="center"
+		android:text="Choose Line Again"
+		android:textAlignment="center"
+		android:textSize="18dp" />
+
+	<NumberPicker
+		android:id="@+id/LinePickerRes"
+		android:layout_width="74dp"
+		android:layout_height="111dp"
+		android:layout_alignParentStart="true"
+		android:layout_below="@+id/textView3"
+		android:layout_marginStart="22dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/LeftFloatNP"
+		app:layout_constraintHorizontal_bias="0.832"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/HeaderTV"
+		app:layout_constraintVertical_bias="0.225" />
+
+	<Button
+		android:id="@+id/NextBtn4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginStart="15dp"
+		android:layout_marginTop="171dp"
+		android:text="NEXT"
+		android:visibility="invisible" />
+
+</RelativeLayout>

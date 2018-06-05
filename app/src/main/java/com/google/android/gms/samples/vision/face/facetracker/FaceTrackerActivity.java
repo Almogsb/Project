@@ -34,6 +34,7 @@ import android.widget.Button;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.face.facetracker.ui.camera.SensorActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.EyeExaminationActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.SingleTouchImageViewActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
@@ -108,7 +109,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
                 t = new Timer();
 //Set the schedule function and rate
-                if (Globals.frequency > 0) {
+                if ((Globals.frequency > 0) && (Globals.APP_MODE==1)) {
                     t.schedule(new TimerTask() {
                                               @Override
                                               public void run() {
@@ -119,9 +120,15 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 //Set how long before to start calling the TimerTask (in milliseconds)
                             Globals.frequency * 1000);
                 }
+                if(Globals.APP_MODE == 1) {
+                    Intent intent = new Intent(FaceTrackerActivity.this, SingleTouchImageViewActivity.class);
+                    startActivity(intent);
+                }
+                else{//Globals.APP_MODE == 0
+                    Intent intent = new Intent(FaceTrackerActivity.this, EyeExaminationActivity.class);
+                    startActivity(intent);
+                }
 
-                Intent intent = new Intent(FaceTrackerActivity.this, SingleTouchImageViewActivity.class);
-                startActivity(intent);
             }
         });
 

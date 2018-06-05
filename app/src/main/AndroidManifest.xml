@@ -53,8 +53,9 @@
         <activity android:name=".Activities.AcuityNumberActivity" />
         <activity android:name=".Activities.FrequencyActivity" />
         <activity android:name=".Activities.SingleTouchImageViewActivity" />
+        <activity android:name=".Activities.EyeExaminationActivity" />
+        <activity android:name=".Activities.SingleTouchImageViewExaminationActivity" />
         <activity android:name=".FaceTrackerActivity" />
-
 
 
     </application>
