@@ -18,6 +18,7 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
 
     private NumberPicker auto_np ;
     private Button next_btn ;
+    private Button back_btn ;
     private Button manual_btn ;
     private Button auto_btn ;
     private TextView auto_txt;
@@ -29,15 +30,17 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frequency);
-
         auto_np = findViewById(R.id.AutoNP);
         auto_np.setOnClickListener(this);
         auto_np.setMaxValue(120);
-        auto_np.setMinValue(1);
+        auto_np.setMinValue(5);
         auto_np.setOnValueChangedListener(this);
 
-        next_btn = findViewById(R.id.NextBtn2);
+        next_btn = findViewById(R.id.FrequencyNextBtn);
         next_btn.setOnClickListener(this);
+
+        back_btn = findViewById(R.id.FrequencyBackBtn);
+        back_btn.setOnClickListener(this);
 
         auto_btn = findViewById(R.id.AutoBtn);
         auto_btn.setOnClickListener(this);
@@ -47,20 +50,16 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
 
         auto_txt = findViewById(R.id.AutoTV2);
 
-//        back_btn = findViewById(R.id.BackBtn);
-//        back_btn.setOnClickListener(this);
-
-
     }
     @Override
     public void onClick(View v) {
         Intent intent;
-//        if( v == back_btn) {
-//            intent = new Intent(this, FirstActivity.class);
-//            startActivity(intent);
-//        }
         if(v == next_btn){
             intent = new Intent(this, FaceTrackerActivity.class);
+            startActivity(intent);
+        }
+        else if(v == back_btn){
+            intent = new Intent(this, AcuityNumberActivity.class);
             startActivity(intent);
         }
 
@@ -68,6 +67,7 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
             auto_txt.setVisibility(View.VISIBLE);
             auto_np.setVisibility(View.VISIBLE);
             next_btn.setVisibility(View.VISIBLE);
+            Globals.frequency=5;
 
         }
         else if(v == manual_btn){
@@ -81,6 +81,8 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
         if(picker == auto_np){
             Globals.frequency = newVal;
+            next_btn.setVisibility(View.VISIBLE);
+
         }
     }
 }

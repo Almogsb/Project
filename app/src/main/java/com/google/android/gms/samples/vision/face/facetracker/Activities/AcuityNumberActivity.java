@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivity;
@@ -22,7 +23,7 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
     private NumberPicker right_float_np ;
     private Button next_btn ;
     private Button back_btn ;
-    private TextView hello_text;
+
 
     public AcuityNumberActivity() {
     }
@@ -56,10 +57,10 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
         right_int_np.setMinValue(0);
         right_int_np.setOnValueChangedListener(this);
 
-        next_btn = findViewById(R.id.NextBtn);
+        next_btn = findViewById(R.id.AcuityNumberNextBtn);
         next_btn.setOnClickListener(this);
 
-        back_btn = findViewById(R.id.BackBtn);
+        back_btn = findViewById(R.id.AcuityNumberBackBtn);
         back_btn.setOnClickListener(this);
 
         //initial array values with 0
@@ -74,15 +75,24 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
             finish();
         }
         else if(v == next_btn){
-             if(Globals.APP_MODE == 1) {
-                 Intent intent = new Intent(this, FrequencyActivity.class);
-                 startActivity(intent);
-                 finish();
+             int i;
+             for(i=0;i<4;i++){
+                 if(Globals.eyes[i] != 0)
+                    break;
              }
-             else{//Globals.APP_MODE == 0
-                 Intent intent = new Intent(this, FaceTrackerActivity.class);
-                 startActivity(intent);
-                 finish();             }
+             if(i==4)
+                 Toast.makeText(AcuityNumberActivity.this,"Probably your vision is PERFECT :)", Toast.LENGTH_SHORT).show();
+             else {
+                 if (Globals.APP_MODE == 1) {
+                     Intent intent = new Intent(this, FrequencyActivity.class);
+                     startActivity(intent);
+                     finish();
+                 } else {//Globals.APP_MODE == 0
+                     Intent intent = new Intent(this, FaceTrackerActivity.class);
+                     startActivity(intent);
+                     finish();
+                 }
+             }
         }
     }
 
@@ -90,8 +100,6 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
         if(picker == left_int_np){
             Globals.eyes[Globals.LEFT_INT] = newVal;
-    //        Log.i("left_int_np", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + String.valueOf(Globals.eyes[Globals.LEFT_INT]));
-    //       Toast.makeText(this,String.valueOf(Globals.eyes[Globals.LEFT_INT]),Toast.LENGTH_SHORT).show();
         }
         else if(picker == left_float_np){
             Globals.eyes[Globals.LEFT_FLOAT] = Integer.valueOf(Globals.number_picker_range[newVal]);

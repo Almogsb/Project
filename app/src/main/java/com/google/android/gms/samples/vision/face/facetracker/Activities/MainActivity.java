@@ -6,13 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static java.lang.Math.sqrt;
 

@@ -23,7 +23,7 @@ public class Globals {
     //Global variables
 
     public static Integer[] eyes = new Integer[4]; // 0 - left int, 1 - left float , 2 - right int , 3 - right float
-    public static Integer frequency = 0;
+    public static Integer frequency = 5;
 
     public static double distance = 0;
     public static double line_examination_picker = 0;
@@ -31,9 +31,12 @@ public class Globals {
     public static double scale_image = 0;
     public static double SPH = 0;
 
+    public static int isFaceApearance = 0;
+    public static double cntFacesApearance = 0;
+
     public static double APP_MODE = 0;
 
-    public static double dp_to_pixels = 0;
+
     public static DisplayMetrics dm = new DisplayMetrics();
 
     public static String[] number_picker_range = new String[]{"0","25","50","75"};

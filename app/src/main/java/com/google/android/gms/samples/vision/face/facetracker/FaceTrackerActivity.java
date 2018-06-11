@@ -30,12 +30,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.face.facetracker.ui.camera.SensorActivity;
-import com.google.android.gms.samples.vision.face.facetracker.Activities.EyeExaminationActivity;
-import com.google.android.gms.samples.vision.face.facetracker.Activities.SingleTouchImageViewActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.BeforeEyeExaminationActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.BeforeRemoveGlassActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.FinalTouchImageViewActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.vision.CameraSource;
@@ -95,40 +97,50 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+              //Toast.makeText(FaceTrackerActivity.this,String.valueOf(  Globals.cntFacesApearance), Toast.LENGTH_SHORT).show();
+                if(Globals.cntFacesApearance==1){
+                    Globals.cntFacesApearance=0;
+                    if((Globals.scale_image = CreateScaleImage()) < 1)
+                        Globals.scale_image = 1;
+                    Log.d("debug", "Screen Inchesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+  Globals.scale_image);
+                   // Toast.makeText(this,String.valueOf(   Globals.scale_image), Toast.LENGTH_SHORT).show();
+                    try{
+                    t.cancel();
+                    }
+                    catch(Exception e){
+                        Log.e("",e.getMessage());
+                    }
 
-                Globals.scale_image = CreateScaleImage();
-                Log.d("debug", "Screen Inchesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss:"+  Globals.scale_image);
-               // Toast.makeText(this,String.valueOf(   Globals.scale_image), Toast.LENGTH_SHORT).show();
-                try{
-                t.cancel();
-                }
-                catch(Exception e){
-                    Log.e("",e.getMessage());
-                }
 
+                    t = new Timer();
+                    //Set the schedule function and rate, MINIMUM 5 SECONDS FOR MANUAL FREQUENCY
+                    if ((Globals.frequency > 4) && (Globals.APP_MODE==1)) {
+                        t.schedule(new TimerTask() {
+                                                  @Override
+                                                  public void run() {
+                                                        Intent intent = new Intent(FaceTrackerActivity.this, FaceTrackerActivity.class);
+                                                        startActivity(intent);
+                                                  }
+                                              },
+                    //Set how long before to start calling the TimerTask (in milliseconds)
+                                Globals.frequency * 1000);
+                    }
+                    if(Globals.APP_MODE == 1) {
+                        Intent intent = new Intent(FaceTrackerActivity.this, FinalTouchImageViewActivity.class);
+                        startActivity(intent);
+                    }
+                    else{//Globals.APP_MODE == 0
+                        Intent intent = new Intent(FaceTrackerActivity.this, BeforeRemoveGlassActivity.class);
+                        startActivity(intent);
+                    }
 
-                t = new Timer();
-//Set the schedule function and rate
-                if ((Globals.frequency > 0) && (Globals.APP_MODE==1)) {
-                    t.schedule(new TimerTask() {
-                                              @Override
-                                              public void run() {
-                                                    Intent intent = new Intent(FaceTrackerActivity.this, FaceTrackerActivity.class);
-                                                    startActivity(intent);
-                                              }
-                                          },
-//Set how long before to start calling the TimerTask (in milliseconds)
-                            Globals.frequency * 1000);
                 }
-                if(Globals.APP_MODE == 1) {
-                    Intent intent = new Intent(FaceTrackerActivity.this, SingleTouchImageViewActivity.class);
-                    startActivity(intent);
+                else if(Globals.cntFacesApearance==0){
+                    Toast.makeText(FaceTrackerActivity.this,"Your face was not recognized :(", Toast.LENGTH_SHORT).show();
                 }
-                else{//Globals.APP_MODE == 0
-                    Intent intent = new Intent(FaceTrackerActivity.this, EyeExaminationActivity.class);
-                    startActivity(intent);
+                else if(Globals.cntFacesApearance>1){
+                    Toast.makeText(FaceTrackerActivity.this,"There are more than one recognize face :(", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -362,6 +374,8 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         @Override
         public void onNewItem(int faceId, Face item) {
             mFaceGraphic.setId(faceId);
+         //   Globals.isFaceApearance = 1;
+            Globals.cntFacesApearance =  Globals.cntFacesApearance+1;
         }
 
         /**
@@ -381,6 +395,8 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         @Override
         public void onMissing(FaceDetector.Detections<Face> detectionResults) {
             mOverlay.remove(mFaceGraphic);
+         //   Globals.isFaceApearance = 0;
+            Globals.cntFacesApearance =  Globals.cntFacesApearance-0.5;
         }
 
         /**

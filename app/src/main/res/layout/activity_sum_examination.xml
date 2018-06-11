@@ -7,46 +7,30 @@
     android:background="#f6f2d5">
 
     <Button
-        android:id="@+id/eyeExaminationBtn"
+        android:id="@+id/SumExaminationFinishBtn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginStart="8dp"
-        android:text="EYES EXAMINATION"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:text="FINISH"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.981"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/GetStartedBtn"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="172dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginStart="8dp"
-        android:text="GET STARTED"
-        app:layout_constraintBottom_toTopOf="@+id/eyeExaminationBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
-        android:id="@+id/HeaderTV"
+        android:id="@+id/SumExaminationTxt"
         android:layout_width="309dp"
-        android:layout_height="100dp"
+        android:layout_height="210dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="140dp"
         android:gravity="center"
-        android:text="Mobile Vision"
         android:textColor="#2d8659"
         android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/GetStartedBtn"
+        app:layout_constraintBottom_toTopOf="@+id/AfterRemoveNextBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintLeft_toLeftOf="parent"

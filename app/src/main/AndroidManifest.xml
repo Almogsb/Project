@@ -52,9 +52,12 @@
         <!--</activity>-->
         <activity android:name=".Activities.AcuityNumberActivity" />
         <activity android:name=".Activities.FrequencyActivity" />
-        <activity android:name=".Activities.SingleTouchImageViewActivity" />
-        <activity android:name=".Activities.EyeExaminationActivity" />
-        <activity android:name=".Activities.SingleTouchImageViewExaminationActivity" />
+        <activity android:name=".Activities.FinalTouchImageViewActivity" />
+        <activity android:name=".Activities.BeforeEyeExaminationActivity" />
+        <activity android:name=".Activities.AfterEyeExaminationActivity" />
+        <activity android:name=".Activities.SumExaminationActivity"/>
+        <activity android:name=".Activities.AfterRemoveGlassActivity"/>
+        <activity android:name=".Activities.BeforeRemoveGlassActivity"/>
         <activity android:name=".FaceTrackerActivity" />
 
 

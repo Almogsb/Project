@@ -10,13 +10,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
+import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivity;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 
@@ -25,9 +25,6 @@ import android.app.Activity;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 //import com.example.touch.R;
 import com.google.android.gms.samples.vision.face.facetracker.TouchImageView;
@@ -36,15 +33,16 @@ import com.google.android.gms.samples.vision.face.facetracker.TouchImageView;
 import java.text.DecimalFormat;
 
 
-public class SingleTouchImageViewActivity extends Activity {
+public class FinalTouchImageViewActivity extends Activity implements View.OnClickListener {
 
     private TouchImageView image;
     private TextView scrollPositionTextView;
     private TextView zoomedRectTextView;
     private TextView currentZoomTextView;
     private DecimalFormat df;
-    private Button buttonLoadImage;
-//
+    private Button LoadImageBtn;
+    private Button back_btn;
+
     private static final int PICK_FROM_GALLERY = 1;
 //
 
@@ -52,64 +50,38 @@ public class SingleTouchImageViewActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_touchimageview);
+        setContentView(R.layout.activity_final_touchimageview);
         //
         // DecimalFormat rounds to 2 decimal places.
         //
-        df = new DecimalFormat("#.##");
-        scrollPositionTextView = (TextView) findViewById(R.id.scroll_position);
-        zoomedRectTextView = (TextView) findViewById(R.id.zoomed_rect);
+        df = new DecimalFormat("##.##");
         currentZoomTextView = (TextView) findViewById(R.id.current_zoom);
         image = (TouchImageView) findViewById(R.id.img);
         image.setScaleType(ImageView.ScaleType.CENTER_CROP);
         image.setZoom((float) Globals.scale_image);
-        currentZoomTextView.setText(String.valueOf(Globals.scale_image));
-        //
-        // Set the OnTouchImageViewListener which updates edit texts
-        // with zoom and scroll diagnostics.
-        //
+        currentZoomTextView.setText(String.valueOf("ZOOM: " + df.format(Globals.scale_image)));
+        LoadImageBtn = (Button) findViewById(R.id.buttonLoadPicture);
 
-        //
-        //
-        buttonLoadImage = (Button) findViewById(R.id.buttonLoadPicture);
-        //
+        back_btn = (Button)findViewById(R.id.FinalTouchImageBackBtn);
+        back_btn.setOnClickListener(FinalTouchImageViewActivity.this);
+
         image.setOnTouchImageViewListener(new TouchImageView.OnTouchImageViewListener() {
 
             @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onMove() {
 
-                PointF point = image.getScrollPosition();
-                RectF rect = image.getZoomedRect();
                 float currentZoom = image.getCurrentZoom();
-                boolean isZoomed = image.isZoomed();
-                scrollPositionTextView.setText("x: " + df.format(point.x) + " y: " + df.format(point.y));
-                zoomedRectTextView.setText("left: " + df.format(rect.left) + " top: " + df.format(rect.top)
-                        + "\nright: " + df.format(rect.right) + " bottom: " + df.format(rect.bottom));
-                currentZoomTextView.setText("getCurrentZoom(): " + currentZoom + " isZoomed(): " + isZoomed);
+                currentZoomTextView.setText("ZOOM: " + df.format(currentZoom));
             }
         });
-
-        /*buttonLoadImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });*/
-
-
-        buttonLoadImage.setOnClickListener(new View.OnClickListener()
+         LoadImageBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick (View v){
                 try {
-                    if (ActivityCompat.checkSelfPermission(SingleTouchImageViewActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(SingleTouchImageViewActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
+                    if (ActivityCompat.checkSelfPermission(FinalTouchImageViewActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(FinalTouchImageViewActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
                     } else {
                         Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
@@ -119,10 +91,8 @@ public class SingleTouchImageViewActivity extends Activity {
                 }
             }
         });
-
-
-
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults)
     {
@@ -158,10 +128,19 @@ public class SingleTouchImageViewActivity extends Activity {
                 image.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
             }
+        }
 
 
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        if (v == back_btn) {
+            intent = new Intent(FinalTouchImageViewActivity.this, FrequencyActivity.class);
+            startActivity(intent);
         }
     }
+
+}
 
 
 
