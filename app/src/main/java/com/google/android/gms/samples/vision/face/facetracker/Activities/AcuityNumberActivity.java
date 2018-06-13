@@ -37,12 +37,14 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
         right_float_np.setOnClickListener(this);
         right_float_np.setDisplayedValues(Globals.number_picker_range);
         right_float_np.setMaxValue(3);
+        right_float_np.setMinValue(0);
         right_float_np.setOnValueChangedListener(this);
 
         left_float_np = findViewById(R.id.LeftFloatNP);
         left_float_np.setOnClickListener(this);
         left_float_np.setDisplayedValues(Globals.number_picker_range);
-        left_float_np.setMaxValue(3);
+        left_float_np.setMaxValue(5);
+        left_float_np.setMinValue(0);
         left_float_np.setOnValueChangedListener(this);
 
         left_int_np = findViewById(R.id.LeftIntNP);
