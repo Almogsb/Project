@@ -25,6 +25,7 @@ import android.app.Activity;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
+import android.widget.Toast;
 
 //import com.example.touch.R;
 import com.google.android.gms.samples.vision.face.facetracker.TouchImageView;
@@ -82,6 +83,8 @@ public class FinalTouchImageViewActivity extends Activity implements View.OnClic
                 try {
                     if (ActivityCompat.checkSelfPermission(FinalTouchImageViewActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(FinalTouchImageViewActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
+                        Toast.makeText(FinalTouchImageViewActivity.this,"Access to the storage is needed for enter the gallery.", Toast.LENGTH_SHORT).show();
+
                     } else {
                         Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
@@ -138,6 +141,13 @@ public class FinalTouchImageViewActivity extends Activity implements View.OnClic
             intent = new Intent(FinalTouchImageViewActivity.this, FrequencyActivity.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, FaceTrackerActivity.class);
+        startActivity(intent);
+        Globals.cntFacesApearance = 0;
     }
 
 }

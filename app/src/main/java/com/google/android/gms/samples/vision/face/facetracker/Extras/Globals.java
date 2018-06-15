@@ -30,8 +30,6 @@ public class Globals {
     public static double line_examination_result = 0;
     public static double scale_image = 0;
     public static double SPH = 0;
-
-    public static int isFaceApearance = 0;
     public static double cntFacesApearance = 0;
 
     public static double APP_MODE = 0;

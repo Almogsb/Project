@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
@@ -67,6 +68,12 @@ public class BeforeEyeExaminationActivity extends Activity implements View.OnCli
 
             }
         }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(BeforeEyeExaminationActivity.this,"You can't go back until you will complete the test.", Toast.LENGTH_SHORT).show();
+
+    }
 
 }
 

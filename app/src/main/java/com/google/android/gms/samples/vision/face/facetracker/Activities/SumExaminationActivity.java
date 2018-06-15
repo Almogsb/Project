@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
@@ -41,6 +42,10 @@ public class SumExaminationActivity extends AppCompatActivity implements View.On
             startActivity(intent);
         }
     }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(SumExaminationActivity.this,"You can't go back until you will complete the test.", Toast.LENGTH_SHORT).show();
 
+    }
 
 }

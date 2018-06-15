@@ -49,7 +49,6 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
         manual_btn.setOnClickListener(this);
 
         auto_txt = findViewById(R.id.AutoTV2);
-
     }
     @Override
     public void onClick(View v) {

@@ -38,6 +38,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.BeforeEyeExaminationActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.BeforeRemoveGlassActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Activities.FinalTouchImageViewActivity;
+import com.google.android.gms.samples.vision.face.facetracker.Activities.FrequencyActivity;
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.Functions.Functions;
 import com.google.android.gms.vision.CameraSource;
@@ -420,5 +421,11 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
        return  Functions.OptimalDiagonalSize(Functions.CmToInch(Globals.distance))/(Functions.OptimalDiagonalSize(Functions.CmToInch(far_point)));
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, FrequencyActivity.class);
+        startActivity(intent);
+        Globals.cntFacesApearance = 0;
     }
 }
