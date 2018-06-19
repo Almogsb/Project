@@ -14,9 +14,13 @@ import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivit
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import java.util.Arrays;
-
+/***
+    AcuityNumberActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick",
+    Depending on the corresponding XML file
+ ***/
 public class AcuityNumberActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
 
+    //private variables
     private NumberPicker left_int_np ;
     private NumberPicker left_float_np ;
     private NumberPicker right_int_np ;
@@ -25,9 +29,7 @@ public class AcuityNumberActivity extends AppCompatActivity implements View.OnCl
     private Button back_btn ;
 
 
-    public AcuityNumberActivity() {
-    }
-
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

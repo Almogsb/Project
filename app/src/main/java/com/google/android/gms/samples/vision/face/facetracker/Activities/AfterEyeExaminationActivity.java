@@ -23,15 +23,21 @@ import java.text.DecimalFormat;
 //import com.example.touch.R;
 //import com.ortiz.touch.TouchImageView.OnTouchImageViewListener;
 
-
+import java.util.Arrays;
+/***
+ AfterEyeExaminationActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed"
+ Depending on the corresponding XML file
+ ***/
 public class AfterEyeExaminationActivity extends Activity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
 
+    //private variables
     private TouchImageView image;
     private TextView currentZoomTextView;
     private DecimalFormat df;
     private Button next_btn;
     private NumberPicker line_np_res;
 
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

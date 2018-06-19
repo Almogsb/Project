@@ -12,14 +12,20 @@ import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import static java.lang.Math.sqrt;
 
+/*
+ ********************* MAIN ACTIVITY ********************
+ */
+/***
+ MainActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed","setOnClickListener"
+ Depending on the corresponding XML file
+ ***/
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-
+    //private variables
     private Button get_started_btn;
     private Button eye_examination_btn;
-  //  private TextView hello_txt;
 
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("debug", "Screen Inches h:"+Globals.dm.heightPixels);
 
         Log.d("INCHES ! ", String.format("%.2f", screenInches)+" In");
-   /*     float Density = (float) sqrt(((Globals.dm.widthPixels * Globals.dm.heightPixels) + (Globals.dm.heightPixels * Globals.dm.heightPixels)) / screenInches);
-        Log.d("DENSITY ! ", String.format("%.2f",Density)+" In");*/
-        //End calculate the inch of the screen
-
-        // /Convert dp to pixels of the screen
-        //Globals.dp_to_pixels = Functions.convertDpToPixel(480 , this);
-        //Declare the timer
 
     }
     @Override
@@ -62,6 +61,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Globals.APP_MODE = 0;
         }
     }
-
-
 }

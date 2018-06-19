@@ -12,13 +12,15 @@ import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import static java.lang.Math.sqrt;
-
+/***
+ AfterRemoveGlassActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed"
+    Depending on the corresponding XML file
+ ***/
 public class AfterRemoveGlassActivity extends AppCompatActivity implements View.OnClickListener {
-
-
-
+    //private variables
     private Button next_btn;
 
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,34 +11,26 @@ import static java.lang.Math.PI;
 import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
-/**
- * Created by almog on 28/03/2018.
+/*
+    this class contain global static function that take part from our ALGORITHM that we present.
  */
-
 public class Functions {
 
-    public static double CreateFloatNumber(int first_number, int second_number){return first_number + (0.01*second_number);}
+    public static double CreateFloatNumber(int first_number, int second_number){
+        return first_number + (0.01*second_number);
+    }
     public static double CmToInch(double number){
         return number/2.54;
     }
     public static double CalculateFarPoint(double sph) {
-       return 1/(sph)*100; // return in CM
+        return 1/(sph)*100; // return in CM
     }
-
-   /* public static float convertDpToPixel(float dp, Context context){
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-        return px;
-    }*/
+    // this function calculate the optimal diagonal size By the formula that we present in our algorithm
     public static double OptimalDiagonalSize (double distance){
         double pow = Math.pow(Globals.dm.heightPixels/(double)Globals.dm.widthPixels,2);
         double square = Math.sqrt(pow+1);
         double tan = Math.tan(1.0/60*PI/180);
-        double a = distance*square*Globals.dm.widthPixels*tan;
-        return a;
+        double d = distance*square*Globals.dm.widthPixels*tan;
+        return d;
     }
-
-
-
 }

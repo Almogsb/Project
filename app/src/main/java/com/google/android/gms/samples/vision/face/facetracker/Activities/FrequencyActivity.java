@@ -12,10 +12,12 @@ import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.FaceTrackerActivity;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
+/***
+ FrequencyActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed","setOnClickListener"
+ Depending on the corresponding XML file
+ ***/
 public class FrequencyActivity extends AppCompatActivity implements View.OnClickListener , NumberPicker.OnValueChangeListener{
-
-
-
+    //private variables
     private NumberPicker auto_np ;
     private Button next_btn ;
     private Button back_btn ;
@@ -23,9 +25,7 @@ public class FrequencyActivity extends AppCompatActivity implements View.OnClick
     private Button auto_btn ;
     private TextView auto_txt;
 
-    public FrequencyActivity() {
-    }
-
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

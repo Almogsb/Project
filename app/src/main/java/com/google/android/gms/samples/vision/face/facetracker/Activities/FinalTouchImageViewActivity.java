@@ -33,20 +33,20 @@ import com.google.android.gms.samples.vision.face.facetracker.TouchImageView;
 
 import java.text.DecimalFormat;
 
-
+/***
+ FinalTouchImageViewActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed","setOnClickListener"
+ Depending on the corresponding XML file
+ ***/
 public class FinalTouchImageViewActivity extends Activity implements View.OnClickListener {
-
+    //private variables
     private TouchImageView image;
-    private TextView scrollPositionTextView;
-    private TextView zoomedRectTextView;
     private TextView currentZoomTextView;
     private DecimalFormat df;
     private Button LoadImageBtn;
     private Button back_btn;
-
     private static final int PICK_FROM_GALLERY = 1;
-//
 
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

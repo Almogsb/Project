@@ -8,18 +8,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-//blalalalalds
+
 import com.google.android.gms.samples.vision.face.facetracker.Extras.Globals;
 import com.google.android.gms.samples.vision.face.facetracker.R;
 
 import static java.lang.Math.sqrt;
-
+/***
+ SumExaminationActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed","setOnClickListener"
+ Depending on the corresponding XML file
+ ***/
 public class SumExaminationActivity extends AppCompatActivity implements View.OnClickListener {
-
-
+    //private variables
     private Button next_btn;
     private TextView final_txt;
 
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,6 @@ public class SumExaminationActivity extends AppCompatActivity implements View.On
             final_txt.setText("Greate!\nNow you see better.");
         else
             final_txt.setText("Sorry!\nWe could not sucsses this time.\nPlease try again.");
-
     }
     @Override
     public void onClick(View v) {

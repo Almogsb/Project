@@ -18,15 +18,17 @@ import com.google.android.gms.samples.vision.face.facetracker.TouchImageView;
 //import com.example.touch.R;
 //import com.ortiz.touch.TouchImageView.OnTouchImageViewListener;
 
-
+/***
+ BeforeEyeExaminationActivity class include variables  the functionality and listeners like "OnValueChange" ,"onClick", "onBackPressed"
+ Depending on the corresponding XML file
+ ***/
 public class BeforeEyeExaminationActivity extends Activity implements View.OnClickListener , NumberPicker.OnValueChangeListener {
-
+    //private variables
     private TouchImageView image;
-
     private Button next_btn;
     private NumberPicker line_np;
 
-
+    // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
