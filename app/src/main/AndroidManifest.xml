@@ -58,6 +58,7 @@
         <activity android:name=".Activities.SumExaminationActivity"/>
         <activity android:name=".Activities.AfterRemoveGlassActivity"/>
         <activity android:name=".Activities.BeforeRemoveGlassActivity"/>
+        <activity android:name=".Activities.HelpActivity"/>
         <activity android:name=".FaceTrackerActivity" />
 
 

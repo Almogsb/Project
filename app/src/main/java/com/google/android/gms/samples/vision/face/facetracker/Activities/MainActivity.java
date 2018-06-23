@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //private variables
     private Button get_started_btn;
     private Button eye_examination_btn;
+    private Button help_btn;
 
     // "Constructor" ,initial the gui functionality called when the corresponding XML file load
     @Override
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         eye_examination_btn = findViewById(R.id.eyeExaminationBtn);
         eye_examination_btn.setOnClickListener(this);
+
+        help_btn = findViewById(R.id.HelpBtn);
+        help_btn.setOnClickListener(this);
 
         //Calculate the inch of the screen
         getWindowManager().getDefaultDisplay().getMetrics(Globals.dm);
@@ -59,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, AcuityNumberActivity.class);
             startActivity(intent);
             Globals.APP_MODE = 0;
+        }
+        else if(v == help_btn) {
+            intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
         }
     }
 }
